@@ -1,0 +1,32 @@
+{
+  "name": "raop-server",
+  "version": "0.0.0",
+  "description": "An RAOP server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "raop",
+    "server",
+    "airtunes",
+    "airplay"
+  ],
+  "author": "Thomas Watson Steen <w@tson.dk>",
+  "license": "MIT",
+  "dependencies": {
+    "getmac": "^1.0.6",
+    "mdns": "^2.2.0"
+  },
+  "devDependencies": {
+    "debug": "^1.0.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/watson/raop-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/watson/raop-server/issues"
+  },
+  "homepage": "https://github.com/watson/raop-server"
+}
