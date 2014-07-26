@@ -16,6 +16,8 @@ module.exports = function (onRequest) {
 var start = function (port) {
   debug('Getting server MAC address');
   getmac.getMac(function (err, mac) {
+    if (err) throw err;
+
     mac = mac.toUpperCase().replace(/:/g, '');
 
     var options = {
