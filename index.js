@@ -29,17 +29,17 @@ module.exports = function (name, txtRecord, onRequest) {
       var model = 'NodeAirPlay' + pkg.version.split('.').slice(0,-1).join(',');
 
       txtRecord = txtRecord || {
-        cn: '0,1,2,3',        // audio codecs
-        da: 'true',
-        et: '0,3,5',          // supported encryption types
-        ft: '0x5A7FFFF7,0xE', // ? seems to be the same as 'features' in AirPlay
-        md: '0,1,2',          // supported metadata types
-        am: model,            // device model
-        sf: '0x44',           // ? seems to be the same as 'flags' in AirPlay
-        tp: 'UDP',            // supported transport
-        vn: '65537',
-        vs: pkg.version,      // server version
-        vv: '2'               // ? maybe the txt record format version
+        txtvers: '1',    // TXT record version 1
+        ch: '2',         // audio channels: stereo
+        cn: '0,1,2,3',   // audio codecs
+        et: '0,3,5',     // supported encryption types
+        md: '0,1,2',     // supported metadata types
+        pw: 'false',     // does the speaker require a password?
+        sr: '44100',     // audio sample rate: 44100 Hz
+        ss: '16',        // audio sample size: 16-bit
+        tp: 'UDP',       // supported transport: TCP or UDP
+        vs: pkg.version, // server version
+        am: model        // device model
       };
 
       debug('Starting server with name %s...', name);
