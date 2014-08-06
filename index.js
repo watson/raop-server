@@ -9,7 +9,7 @@ var pkg = require('./package.json');
 
 module.exports = function (name, txtRecord, onRequest) {
   if (typeof name === 'object') {
-    options = name;
+    txtRecord = name;
     name = undefined;
   } else if (typeof name === 'function') {
     onRequest = name;
