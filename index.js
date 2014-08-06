@@ -7,18 +7,11 @@ var debug = require('debug')('raop');
 
 var pkg = require('./package.json');
 
-module.exports = function (name, txtRecord, onRequest) {
-  if (typeof name === 'object') {
-    txtRecord = name;
-    name = undefined;
-  } else if (typeof name === 'function') {
-    onRequest = name;
-    name = undefined;
-  } else if (typeof txtRecord === 'function') {
-    onRequest = txtRecord;
-    txtRecord = undefined;
-  }
+var raop = module.exports = function (name, txtRecord, onRequest) {
   if (!name) name = 'Node.js';
+  if (typeof name === 'object') return raop(null, name, txtRecord);
+  if (typeof name === 'function') return raop(null, null, name);
+  if (typeof txtRecord === 'function') return raop(name, null, txtRecord);
 
   var start = function () {
     debug('Getting server MAC address');
