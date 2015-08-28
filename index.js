@@ -44,7 +44,7 @@ var raop = module.exports = function (name, opts, onRequest) {
   var getMac = function (cb) {
     debug('Getting server MAC address')
     getmac.getMac(function (err, mac) {
-      if (err) throw err
+      if (err) return server.emit('error', err)
       debug('Found MAC address', mac)
       cb(mac)
     })
