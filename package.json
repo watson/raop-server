@@ -12,7 +12,7 @@
     "airtunes",
     "airplay"
   ],
-  "author": "Thomas Watson Steen <w@tson.dk>",
+  "author": "Thomas Watson Steen <w@tson.dk> (https://twitter.com/wa7son)",
   "license": "MIT",
   "dependencies": {
     "getmac": "^1.0.6",
