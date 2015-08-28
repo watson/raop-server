@@ -34,12 +34,10 @@ var raop = module.exports = function (name, opts, onRequest) {
 
   var broadcast = function (mac) {
     var port = server.address().port
-    debug('Starting server with name %s...', name)
+    var fullName = mac.toUpperCase().replace(/:/g, '') + '@' + name
+    debug('Starting server %s - port %d...', fullName, port)
     mdns
-      .createAdvertisement(mdns.tcp('raop'), port, {
-        name: mac.toUpperCase().replace(/:/g, '') + '@' + name,
-        txtRecord: txt
-      })
+      .createAdvertisement(mdns.tcp('raop'), port, { name: fullName, txtRecord: txt })
       .start()
   }
 
@@ -47,6 +45,7 @@ var raop = module.exports = function (name, opts, onRequest) {
     debug('Getting server MAC address')
     getmac.getMac(function (err, mac) {
       if (err) throw err
+      debug('Found MAC address', mac)
       cb(mac)
     })
   }
