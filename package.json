@@ -4,7 +4,8 @@
   "description": "A RAOP server",
   "main": "index.js",
   "scripts": {
-    "test": "standard"
+    "test": "standard",
+    "debug": "DEBUG=* node ./debug"
   },
   "keywords": [
     "raop",
