@@ -11,13 +11,13 @@ npm install raop-server
 ## Example usage
 
 ```javascript
-var raop = require('raop-server')('My RAOP Server');
+var raop = require('raop-server')('My RAOP Server')
 
 raop.on('request', function (c) {
   // do your stuff
-});
+})
 
-raop.listen(7000); // start server on port 7000
+raop.listen(7000) // start server on port 7000
 ```
 
 ## API
@@ -30,7 +30,7 @@ Either of them can be left out, so calling with only `options` or only
 `name` and `onRequest` is ok:
 
 ```javascript
-require('raop-server')(name, options, onRequest);
+require('raop-server')(name, options, onRequest)
 ```
 
 Constructor arguments:
