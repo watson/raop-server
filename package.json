@@ -1,7 +1,7 @@
 {
   "name": "raop-server",
   "version": "0.0.0",
-  "description": "An RAOP server",
+  "description": "A RAOP server",
   "main": "index.js",
   "scripts": {
     "test": "standard"

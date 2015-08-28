@@ -1,6 +1,6 @@
 # raop-server
 
-An RAOP server
+A RAOP server
 
 ## Installation
 
@@ -10,7 +10,7 @@ npm install raop-server
 
 ## Example usage
 
-```javascript
+```js
 var raop = require('raop-server')('My RAOP Server')
 
 raop.on('request', function (c) {
@@ -29,7 +29,7 @@ it. It takes the optional arguments `name`, `options` and `onRequest`.
 Either of them can be left out, so calling with only `options` or only
 `name` and `onRequest` is ok:
 
-```javascript
+```js
 require('raop-server')(name, options, onRequest)
 ```
 
