@@ -1,25 +1,25 @@
-'use strict';
+'use strict'
 
-var net = require('net');
-var mdns = require('mdns');
-var getmac = require('getmac');
-var debug = require('debug')('raop');
+var net = require('net')
+var mdns = require('mdns')
+var getmac = require('getmac')
+var debug = require('debug')('raop')
 
-var pkg = require('./package.json');
+var pkg = require('./package.json')
 
 var raop = module.exports = function (name, txtRecord, onRequest) {
-  if (!name) name = 'Node.js';
-  if (typeof name === 'object') return raop(null, name, txtRecord);
-  if (typeof name === 'function') return raop(null, null, name);
-  if (typeof txtRecord === 'function') return raop(name, null, txtRecord);
+  if (!name) name = 'Node.js'
+  if (typeof name === 'object') return raop(null, name, txtRecord)
+  if (typeof name === 'function') return raop(null, null, name)
+  if (typeof txtRecord === 'function') return raop(name, null, txtRecord)
 
   var start = function () {
-    debug('Getting server MAC address');
+    debug('Getting server MAC address')
     getmac.getMac(function (err, mac) {
-      if (err) throw err;
+      if (err) throw err
 
-      var port = server.address().port;
-      var model = 'NodeAirPlay' + pkg.version.split('.').slice(0,-1).join(',');
+      var port = server.address().port
+      var model = 'NodeAirPlay' + pkg.version.split('.').slice(0, -1).join(',')
 
       txtRecord = txtRecord || {
         txtvers: '1',    // TXT record version 1
@@ -33,19 +33,19 @@ var raop = module.exports = function (name, txtRecord, onRequest) {
         tp: 'UDP',       // supported transport: TCP or UDP
         vs: pkg.version, // server version
         am: model        // device model
-      };
+      }
 
-      debug('Starting server with name %s...', name);
+      debug('Starting server with name %s...', name)
       mdns
         .createAdvertisement(mdns.tcp('raop'), port, {
           name: mac.toUpperCase().replace(/:/g, '') + '@' + name,
           txtRecord: txtRecord
         })
-        .start();
-    });
-  };
+        .start()
+    })
+  }
 
-  var server = net.createServer(onRequest);
-  server.on('listening', start);
-  return server;
-};
+  var server = net.createServer(onRequest)
+  server.on('listening', start)
+  return server
+}

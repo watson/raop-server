@@ -4,7 +4,7 @@
   "description": "An RAOP server",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "standard"
   },
   "keywords": [
     "raop",
@@ -19,7 +19,8 @@
     "mdns": "^2.2.0"
   },
   "devDependencies": {
-    "debug": "^1.0.4"
+    "debug": "^1.0.4",
+    "standard": "^5.1.0"
   },
   "repository": {
     "type": "git",
