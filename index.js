@@ -7,11 +7,12 @@ var debug = require('debug')('raop')
 
 var pkg = require('./package')
 
-var raop = module.exports = function (name, txtRecord, onRequest) {
+var raop = module.exports = function (name, opts, onRequest) {
   if (!name) name = 'Node.js'
-  if (typeof name === 'object') return raop(null, name, txtRecord)
+  if (!opts) opts = {}
+  if (typeof name === 'object') return raop(null, name, opts)
   if (typeof name === 'function') return raop(null, null, name)
-  if (typeof txtRecord === 'function') return raop(name, null, txtRecord)
+  if (typeof opts === 'function') return raop(name, null, opts)
 
   var start = function () {
     debug('Getting server MAC address')
@@ -21,7 +22,7 @@ var raop = module.exports = function (name, txtRecord, onRequest) {
       var port = server.address().port
       var model = 'NodeAirPlay' + pkg.version.split('.').slice(0, -1).join(',')
 
-      txtRecord = txtRecord || {
+      var txt = opts.txt || {
         txtvers: '1',    // TXT record version 1
         ch: '2',         // audio channels: stereo
         cn: '0,1,2,3',   // audio codecs
@@ -38,8 +39,8 @@ var raop = module.exports = function (name, txtRecord, onRequest) {
       debug('Starting server with name %s...', name)
       mdns
         .createAdvertisement(mdns.tcp('raop'), port, {
-          name: mac.toUpperCase().replace(/:/g, '') + '@' + name,
-          txtRecord: txtRecord
+          name: (opts.mac || mac).toUpperCase().replace(/:/g, '') + '@' + name,
+          txtRecord: txt
         })
         .start()
     })
