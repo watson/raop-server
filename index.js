@@ -5,7 +5,7 @@ var mdns = require('mdns')
 var getmac = require('getmac')
 var debug = require('debug')('raop')
 
-var pkg = require('./package.json')
+var pkg = require('./package')
 
 var raop = module.exports = function (name, txtRecord, onRequest) {
   if (!name) name = 'Node.js'
