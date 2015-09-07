@@ -17,7 +17,7 @@ var raop = module.exports = function (opts, onRequest) {
     var port = server.address().port
     debug('Listening on port %d', port)
 
-    opts = xtend({ name: 'Node.js', version: pkg.version, port: port }, opts)
+    opts = xtend({ name: 'Node.js', port: port }, opts)
 
     mdns(opts, function (err) {
       if (err) server.emit('error', err)

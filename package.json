@@ -17,7 +17,7 @@
   "author": "Thomas Watson Steen <w@tson.dk> (https://twitter.com/wa7son)",
   "license": "MIT",
   "dependencies": {
-    "raop-mdns-server": "^1.0.0",
+    "raop-mdns-server": "^2.0.0",
     "xtend": "^4.0.0"
   },
   "devDependencies": {
