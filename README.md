@@ -1,6 +1,11 @@
 # raop-server
 
-A RAOP server
+A RAOP server.
+
+**Warning: This is very much work-in-progress :)** For something more
+useful for now, check out either
+[raop-rtsp-server](https://github.com/watson/raop-rtsp-server) or the
+more low level [rtsp-server](https://github.com/watson/rtsp-server).
 
 [![Build status](https://travis-ci.org/watson/raop-server.svg?branch=master)](https://travis-ci.org/watson/raop-server)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
