@@ -8,7 +8,9 @@ A RAOP server
 ## Installation
 
 ```
-npm install raop-server
+git clone https://github.com/watson/raop-server.git
+cd raop-server
+npm install
 ```
 
 ## Example usage
